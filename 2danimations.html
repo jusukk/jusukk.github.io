@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.min.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="js/main.js" defer></script>
+    <title>Jussi Ukkonen - 2D Animations</title>
+</head>
+<body>
+    <img id="loadFirst" src="img/loading_icon.webp">
+    <div class="galleryWrap">
+        <div id="lbSearch" class="gallery">
+            <header>
+                <a href="index.html" class="btnText">Back</a>
+                <h2>2D Animations</h2>
+            </header>
+            <div class="galleryBox">
+                <video class="lbItem" poster="img/anim_p1_poster.webp" autoplay playsinline muted loop>                  
+                    <source src="video/anim_p1_low.webm" type="video/webm">
+                    <source src="video/anim_p1_low.mp4" type="video/mp4">
+                </video> 
+                <i>Unity Particle System + Shader Graph</i> 
+            </div>
+            <div class="galleryBox">
+                <video class="lbItem" poster="img/anim_c2_poster.webp" autoplay playsinline muted loop>                  
+                    <source src="video/anim_c2_low.webm" type="video/webm">
+                    <source src="video/anim_c2_low.mp4" type="video/mp4">
+                </video> 
+                <i>Adobe After Effects</i> 
+            </div>
+            <div class="galleryBox">
+                <video class="lbItem" poster="img/anim_c1_poster.webp" autoplay playsinline muted loop>                  
+                    <source src="video/anim_c1_low.webm" type="video/webm">
+                    <source src="video/anim_c1_low.mp4" type="video/mp4">
+                </video> 
+                <i>Adobe After Effects</i> 
+            </div>
+            <div class="galleryBox">
+                <video class="lbItem" poster="img/anim_ha_poster.webp" autoplay playsinline muted loop>                  
+                    <source src="video/anim_ha_low.mp4" type="video/mp4">
+                </video> 
+                <i>Unity - Seperate upper & lower body animations</i> 
+            </div>
+            <div class="galleryBox">
+                <video class="lbItem" poster="img/anim_ver_poster.webp" autoplay playsinline muted loop>                  
+                    <source src="video/anim_ver_low.mp4" type="video/mp4">
+                </video> 
+                <i>Unity</i> 
+            </div>
+            <div class="galleryBox">
+                <video class="lbItem" poster="img/anim_ver2_poster.webp" autoplay playsinline muted loop>                  
+                    <source src="video/anim_ver2_low.webm" type="video/webm">
+                    <source src="video/anim_ver2_low.mp4" type="video/mp4">
+                </video> 
+                <i>Unity</i> 
+            </div>
+            <div class="galleryBox">
+                <lottie-player class="lbItem" 
+                    src="lottie/lottie_astronaut.json" autoplay loop></lottie-player>
+                <i>LottieFiles, Adobe After Effects</i> 
+            </div>
+        </div>
+    </div>
+
+    <div id="lightBox">
+        <div class="lbBox">
+            <video poster="img/anim_p1_poster.webp" controls preload="none" muted loop>
+                <source src="video/anim_p1.webm" type="video/webm">
+                <source src="video/anim_p1.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="lbBox">
+            <video poster="img/anim_c2_poster.webp" controls preload="none" muted loop>
+                <source src="video/anim_c2.webm" type="video/webm">
+                <source src="video/anim_c2.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="lbBox">
+            <video poster="img/anim_c1_poster.webp" controls preload="none" muted loop>
+                <source src="video/anim_c1.webm" type="video/webm">
+                <source src="video/anim_c1.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="lbBox">
+            <video poster="img/anim_ha_poster.webp" controls preload="none" muted loop>
+                <source src="video/anim_ha.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="lbBox">
+            <video poster="img/anim_ver_poster.webp" controls preload="none" muted loop>
+                <source src="video/anim_ver.mp4" type="video/mp4">
+            </video>             
+        </div>
+        <div class="lbBox">
+            <video  poster="img/anim_ver2_poster.webp" controls preload="none" muted loop>
+                <source src="video/anim_ver2.mp4" type="video/mp4">
+            </video>            
+        </div>
+        <div class="lbLottie">
+            <lottie-player src="lottie/lottie_astronaut.json" autoplay controls loop></lottie-player>    
+        </div>  
+    </div>
+
+</body>
+</html>

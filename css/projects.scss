@@ -1,0 +1,85 @@
+.projectBox {
+    display: flex;
+    width: 100%;    
+    max-width: 52em;
+    background-color: $colorBox;
+    border-radius: $border;
+
+    .multiple {
+        height: 100%;
+        max-height: 12em;
+    }
+
+    .mini {
+        max-width: 9em;
+    }
+    .mid {
+        max-width: 15em;
+    }
+
+    .left {
+        border-radius: $border 0 0 $border;
+    }
+    .topLeft {
+        border-radius: $border 0 0 0;
+    }
+    .topRight {
+        border-radius: 0 $border 0 0;
+    }  
+
+    .grow {
+        flex: 1.5;
+    }
+
+    .shrink {
+        flex: 1;
+    }
+
+    .mediaBox {
+        display: flex;
+
+        & > *, img {
+            object-fit: cover;
+            width: 100%;
+            min-width: 10em;
+            min-height: 10em;
+        }
+
+        img {
+            display: block;
+            height: 100%;
+        }
+
+    }
+
+    .textBox {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        padding: 2em;
+        min-width: 150px;
+        flex: 2;
+
+        .btnBox {
+            margin-top: 0.5em;
+        }
+    } 
+}
+
+@media only screen and (max-width: 512px)  {
+    // Change (mid) direction to column and scale image to cover
+    .dynamic {
+        flex-direction: column;
+
+        .left {
+            border-radius: $border $border 0 0;
+        }
+
+        .mid {
+            flex: 1;
+            max-width: 100%;
+            height: 12em;
+        }
+    }
+
+}

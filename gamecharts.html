@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+	<link href="css/gamecharts.min.css" rel="stylesheet">
+    <title>Game Charts</title>
+</head>
+<body>
+    <div class="wrap">
+		<header class="header">
+			<a href="index.html#gameCharts" class="btn">Back</a>
+			<h2>Game Charts</h2>
+        </header>   
+        <div class="gameBox">
+            <canvas id="game">Your browser does not support canvas element.</canvas>
+        </div>
+        <div class="chartBox">
+            <div class="chartBox-item-1">
+                <canvas id="chart1"></canvas>
+            </div>
+            <div class="chartBox-item-2">
+                <canvas id="chart2"></canvas>
+            </div>
+        </div>
+        <div class="textBox">
+            <h3>About</h3>
+            <p>
+                This is a simple game made by using JavaScript and HTML5 canvas. Scores are stored into 
+                a Firebase Realtime Database and are used to create canvas charts by using a Chart.js library.
+                <br><br> The first chart shows top 5 scores. The second chart shows avarages and how many scores have the same value. 
+                You can toggle the chart by clicking its label. 
+            </p>
+            <h3>Gameplay</h3>
+                <p>
+                    Press SPACE to hover and try to avoid obstacles. You score when obstacles reach the other side. 
+                    The game ends when you hit the obstacle and your score is then send to the database.
+                </p>
+                <a href="https://github.com/Isopulla/game-charts" target="_blank" class="btn">GitHub</a>
+        </div>        
+    </div>
+    <script src="js/gamecharts.js"></script>
+</body>
+</html>

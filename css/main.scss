@@ -1,0 +1,83 @@
+$fontMain: 'Source Sans Pro', sans-serif;
+$fontHeader: $fontMain;
+
+$accent: #FF2C55;
+//$accent: #F2FF49;
+//$accent: #ffbb3c;
+
+$colorDark: #1b1924;
+$colorGrey: #999999;
+$colorLightGrey: #CCCCCC;
+$colorBox: #ececec;
+
+$colorFont: #000;
+$colorH1: #fff;
+$colorH2: $colorDark;
+$colorCode: #808080;
+
+$border: 1em;
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    border: none;
+}
+
+body {
+    font-family: $fontMain;
+    font-size: clamp(0.9rem, 1vw, 1.1rem);
+    color: $colorFont;
+    min-width: 300px;
+}
+
+h1 {
+    font-family: $fontHeader;
+    font-size: clamp(2.5rem, 3vw, 3.5rem);
+    font-weight: Bold;
+    color: $colorH1;
+}
+
+h2 {
+    font-family: $fontHeader;
+    font-size: 1.5em;
+    font-weight: normal;
+    color: $colorH2;
+}
+
+h3 {
+    font-family: $fontHeader;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: $colorFont;
+}
+
+a {
+    text-decoration: none;
+    color: $colorFont;
+    fill: $colorFont;
+    stroke: $colorFont;
+    cursor:pointer;
+}
+
+i {
+    font-style: italic;
+    font-weight: normal;
+    color: $colorCode;
+}
+
+#loadFirst, source {
+    display: none;
+}
+
+picture, video {
+    background-image: url("../img/loading_icon.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 6em;
+}
+
+.column {
+    flex-direction: column;
+}
