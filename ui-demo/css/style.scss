@@ -1,0 +1,247 @@
+$colorFont: #000;
+$colorBase: #e0e0e0;
+$accent: #e74d3c;
+
+@mixin accentFilter {
+    filter: invert(35%) sepia(99%) saturate(2467%) hue-rotate(342deg) brightness(98%) contrast(84%);
+}
+
+$textDark: #242424;
+$border: 1em;
+
+@mixin raise {
+    box-shadow:
+    inset 0 0 0 transparent, // Inside shadow
+    inset 0 0 0 transparent, //Inside light
+    inset 0.5em 0.1em 1em -0.5em scale-color($colorBase, $lightness: 60%), // Outside light
+    0 0 0 transparent, // Outside shadow 
+    0.4em 0.2em 1em -0.2em scale-color($colorBase, $lightness: -12%); // Outside shadow
+    transition: box-shadow 0.05s ease-in, transform 0.05s ease-in;
+}
+
+@mixin dig {
+    box-shadow: 
+    inset 0.8em 0.5em 1em -0.8em scale-color($colorBase, $lightness: -20%), // Inside shadow
+    inset -0.8em -1.1em 1em -0.8em scale-color($colorBase, $lightness: 50%), //Inside light
+    inset 0 0 0 transparent, // Outside shadow inset 
+    0.25em 0.1em 1em -0.2em scale-color($colorBase, $lightness: -20%), // Outside shadow
+    0 0 0.2em 0.2em scale-color($colorBase, $lightness: 60%); // Outside light
+    background-color: scale-color($colorBase, $lightness: -2%);
+}
+
+@mixin digAccent {
+    box-shadow: 
+    inset 0.8em 0.5em 1em -0.8em scale-color($accent, $lightness: -20%), // Inside shadow
+    inset -0.8em -1.1em 1em -0.8em scale-color($accent, $lightness: 30%); //Inside light
+    background-color: darken($accent, 1%);
+}
+
+@mixin flexH {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flexV {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    border: none;
+}
+
+body {
+    font-family: sans-serif;
+    //font-size: clamp(12px, 1.1vw, 22px);
+    font-size: 100%;
+    color: $colorFont;
+    font-weight: bold;
+    color: $textDark;
+    min-height: 100vh;
+    background: linear-gradient(280deg, #D9D9D9 0%, #FFF 100%);
+    user-select: none; 
+    @include flexH;
+}
+
+h1 {
+    font-size: 1.3rem;
+}
+
+.wrap {
+    @include flexV;
+    width: 100%;
+    max-width: 375px;
+    max-height: 811px;
+    margin: auto;
+    padding: 2em;
+    border-radius: 2em;
+    gap: 2.5em;
+    background-color: $colorBase;
+    @include raise;
+}
+
+.head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#clock {
+    @include flexV;
+    justify-content: center;
+    width: 6.2em;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background-color: $colorBase;
+    @include raise;
+
+    font-size: 2.5em;
+}
+
+.btnboxes {
+    @include flexV;
+    gap: 1.5em;
+    width: 100%;
+}
+
+.btnBox {
+    @include flexH;
+    justify-content: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    width: 100%;
+    gap: 2em;
+}
+
+.btnBoxLift {
+    @include flexH;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1em 1.5em;
+    background-color: $colorBase;
+    border-radius: $border;
+    @include raise;
+}
+
+.btnBoxIcon {
+    @include flexH;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 1em;
+}
+
+.btnIcon {
+    padding: 1em;
+    border-radius: $border;
+    @include raise;
+
+    .icon {
+        padding: 0.8em;
+        background-repeat: no-repeat;
+        background-position: center; 
+        background-size: contain;
+    }
+
+    &:active {
+        @include dig;
+        transform: translateY(0.12em);        
+    }
+}
+
+.btnBig {
+    padding: 1.4em;
+    .icon {
+        padding: 1.2em;
+    }
+}
+
+.btnRound {
+    border-radius: 100%;
+}
+  
+.iconSettings {
+    background-image: url(../img/settings-outline.svg);
+}
+.btnIcon:active .iconSettings {
+    background-image: url(../img/settings.svg);
+    //@include accentFilter;
+}
+
+.iconPlay {
+    background-image: url(../img/play-outline.svg);
+}
+.iconPause {
+    background-image: url(../img/pause-color.svg);
+}
+.iconcHevronBack {
+    background-image: url(../img/chevron-back.svg);
+}
+.iconcHevronForward {
+    background-image: url(../img/chevron-forward.svg);
+}
+.iconcVolumeHigh {
+    background-image: url(../img/volume-high.svg);
+}
+.iconcVolumeLow {
+    background-image: url(../img/volume-low.svg);
+}
+.iconcVolumeMute {
+    background-image: url(../img/volume-Mute.svg);
+}
+
+.btnPlayToggle{
+    .icon {
+        @extend .iconPause;
+        @include accentFilter;
+    }
+    @include dig;
+}
+
+.btnVolumeToggle {
+    .icon {
+        @extend .iconcVolumeMute;
+        @include accentFilter;
+    }
+    @include dig;
+}
+
+input[type="range"] {
+    appearance: none;
+    background: transparent;
+    width: 100%;
+    height: 2em;    
+    margin-left: 2em;
+    border: none;
+    border-radius: $border;
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none;
+    height: 3em;
+    width: 3em;
+    border-radius: 100%;
+    border: none;
+    background-color: $colorBase;
+    @include raise;
+}
+
+input[type="range"]::-moz-range-track {  
+    height: 1.2em;
+    border-radius: $border;
+    border: none;
+    @include dig;
+}
+
+input[type=range]::-moz-range-progress {
+    height: 1.1em;
+    border-radius: $border;
+    @include digAccent;
+}

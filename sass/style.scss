@@ -1,0 +1,549 @@
+$colorBlack: #01111A;
+$colorWhite: #FBFBFF;
+$colorShade1: mix($colorWhite, $colorBlack, 10%);
+$colorShade2: mix($colorWhite, $colorBlack, 55%);
+$colorShade3: mix($colorWhite, $colorBlack, 80%);
+$colorShade4: mix($colorWhite, $colorBlack, 90%);
+
+$colorAccent: #5a1de9;
+
+$fontMain: Arial, Helvetica, sans-serif;
+$fontHeader: 'Courier New', Courier, monospace;
+
+@mixin load() {
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='24px' height='30px' viewBox='0 0 24 30' style='enable-background:new 0 0 50 50;' xml:space='preserve'%3E%3Crect x='0' y='10' width='4' height='10' fill='%23999999' opacity='0.2'%3E%3Canimate attributeName='opacity' attributeType='XML' values='0.2; 1; .2' begin='0s' dur='0.6s' repeatCount='indefinite' /%3E%3Canimate attributeName='height' attributeType='XML' values='10; 20; 10' begin='0s' dur='0.6s' repeatCount='indefinite' /%3E%3Canimate attributeName='y' attributeType='XML' values='10; 5; 10' begin='0s' dur='0.6s' repeatCount='indefinite' /%3E%3C/rect%3E%3Crect x='8' y='10' width='4' height='10' fill='%23999999' opacity='0.2'%3E%3Canimate attributeName='opacity' attributeType='XML' values='0.2; 1; .2' begin='0.15s' dur='0.6s' repeatCount='indefinite' /%3E%3Canimate attributeName='height' attributeType='XML' values='10; 20; 10' begin='0.15s' dur='0.6s' repeatCount='indefinite' /%3E%3Canimate attributeName='y' attributeType='XML' values='10; 5; 10' begin='0.15s' dur='0.6s' repeatCount='indefinite' /%3E%3C/rect%3E%3Crect x='16' y='10' width='4' height='10' fill='%23999999' opacity='0.2'%3E%3Canimate attributeName='opacity' attributeType='XML' values='0.2; 1; .2' begin='0.3s' dur='0.6s' repeatCount='indefinite' /%3E%3Canimate attributeName='height' attributeType='XML' values='10; 20; 10' begin='0.3s' dur='0.6s' repeatCount='indefinite' /%3E%3Canimate attributeName='y' attributeType='XML' values='10; 5; 10' begin='0.3s' dur='0.6s' repeatCount='indefinite' /%3E%3C/rect%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 3rem;
+    background-color: $colorBlack;
+    min-height: 120px;
+    min-width: 120px;
+}
+
+
+@mixin contentWrap() {
+    max-width: 1200px;
+}
+
+@mixin textWrap() {
+    max-width: 760px;
+}
+
+@mixin bgStripes() {
+    background-color: #000;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.16' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+//https://stackoverflow.com/questions/23274338/how-to-keep-wrapped-flex-items-the-same-width-as-the-elements-on-the-previous-ro
+@mixin flex-wrap-fix($flex-basis, $max-viewport-width: 3000px) {
+    flex-grow: 1;
+    flex-basis: $flex-basis;
+    max-width: 100%;
+
+    $multiplier: 1;
+    $current-width: 0px;
+
+    @while $current-width < $max-viewport-width {
+        $current-width: $current-width +$flex-basis;
+        $multiplier: $multiplier +1;
+
+        @media(min-width: ($flex-basis * $multiplier)) {
+            max-width: percentage(calc(1/$multiplier));
+        }
+    }
+}
+
+//--------------------------------------------------------------
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    border: none;
+}
+
+html {
+    font-family: $fontMain;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    color: $colorBlack;
+}
+
+body {
+    min-width: 320px;
+    background-color: #000;
+}
+
+
+h1 {
+    font-family: $fontHeader;
+    font-size: clamp(2rem, 6vw, 2.3rem);
+    text-align: center;
+    font-weight: bold;
+    font-style: normal;
+}
+
+h2 {
+    font-family: $fontHeader;
+    font-size: clamp(1.5rem, 6vw, 1.8rem);
+    font-style: normal;
+    color: $colorWhite;
+}
+
+h3 {
+    font-family: $fontHeader;
+    font-size: clamp(1.1rem, 6vw, 1.4rem);
+    font-style: normal;
+    color: $colorWhite;
+}
+
+a {
+    font-family: $fontHeader;
+    font-style: italic;
+    text-decoration: none;
+    color: $colorBlack;
+
+    &:hover {
+        color: $colorAccent;
+        text-decoration: underline;
+        font-weight:bold;
+    }
+}
+
+img,
+video {
+    display: block;
+    @include load();
+}
+
+.accentBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+
+    span {
+        padding: 0.4rem 0.8rem;
+        border-radius: 0.4rem;
+        font-size: 0.9rem;
+        font-style: italic;
+        background-color: $colorShade1;
+        color: $colorShade2;
+    }
+}
+
+.btnTab {
+    padding: 0.4rem 0.8rem;
+    border: solid $colorShade4;
+    background-color: $colorShade4;
+    border-radius: 0.8rem;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    font-weight:bold;
+    color: $colorShade1;
+    font-size: 0.9rem;
+
+    &:hover {
+        border: solid $colorAccent;
+        color: $colorAccent;
+    }
+}
+
+.btnTabActive {
+    border: solid $colorAccent;
+    background-color: $colorAccent;
+    pointer-events: none;
+    color: $colorWhite;
+    font-weight:bold;
+}
+
+.btn {
+    color: $colorWhite;
+    text-decoration: underline;
+}
+
+// HEADER
+//--------------------------------------------------------------
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    padding-bottom: 0;
+    gap: 0.5rem;
+    width: 100%;
+    background: $colorWhite;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    @include contentWrap();
+
+    address {
+        display: flex;
+        gap: 2rem;
+    }
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    a {
+        font-size: 1.5rem;
+    }
+}
+
+#tabMenu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+#dongler {
+    align-self: flex-end;
+    margin-top: auto;
+    margin-right: 3vw;
+    margin-bottom: -1px;
+    font-size: 0.8rem;
+    color: $colorShade4;
+    user-select: none;
+
+    transition: all .2s ease-in-out;
+    animation-duration: 0.5s;
+    animation-name: jump;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+footer {
+    height: 2rem;
+}
+
+// GALLERY
+//--------------------------------------------------------------
+.gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.galleryItem {
+    //flex: 0 1 15vw;
+    position: relative;
+    @include flex-wrap-fix(250px);
+
+    img,
+    video {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+    }
+
+    &:hover .galleryItemTextBox {
+        background-color: $colorAccent;
+    }
+}
+
+.galleryItemTextBox {
+    z-index: 10;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 0.5rem;
+    opacity: 0.8; 
+    background-color: $colorBlack;
+    color: white;
+    text-align: center;
+    font-style: normal;
+    font-size: 0.9rem;
+    user-select: none;
+}
+
+// ABOUT
+//--------------------------------------------------------------
+.idWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.idTextBox {
+    @include textWrap();
+    padding: 0 1rem;
+
+    h3 {
+        padding-top: 1rem;
+    }
+
+    .software {
+        justify-content: initial;
+    }
+
+    .accentBox {
+        justify-content: initial;
+    }
+}
+
+.idSummaryBox {
+    color: $colorShade3;
+    padding: 4rem 0 3rem;
+}
+
+.workBox {
+    padding: 1rem 1.2rem;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    background-color: $colorShade1;
+    color: $colorShade2;
+
+    span {
+        color: $colorShade4;
+        font-size: 1rem;
+    }
+
+    p {
+        padding: 0.2rem;
+    }
+
+    ul {
+        padding-left: 1rem;
+        list-style-type: none;
+        text-align: start;
+    }
+
+    li {
+        padding: 0.1rem 0;
+    }
+
+}
+
+// BLOG
+//--------------------------------------------------------------
+.blogTextBox {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    margin: 0 auto;
+
+    color: $colorShade3;
+    text-align: center;
+
+    @include textWrap();
+
+    p {
+        text-align: start;
+        padding: 0.5rem 0;
+    }
+
+    address {
+        padding: 1rem 0 0.5rem;
+    }
+
+    ul {
+        padding-left: 1rem;
+        list-style-type: none;
+        text-align: start;
+    }
+
+    li {
+        padding: 0.1rem 0;
+    }
+}
+
+.blogGalleryBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    p {
+        color: $colorShade3;
+        text-align: center;
+        padding: 0.5rem 0 1rem;
+    }
+}
+
+.blogGalleryItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    video,
+    img {
+        max-height: 80vh;
+        max-width: 100%;
+    }
+}
+
+// GAMECHARTS
+//--------------------------------------------------------------
+.gameChartsBox {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.gameBox {
+    padding: 1rem 0;
+}
+
+.chartBox {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 1rem;
+
+    canvas {
+        height: 320px !important;
+    }
+}
+
+.chartBox-item-1 {
+    max-width: 250px;
+}
+
+#game {
+    width: 100%;
+    height: 320px;
+}
+
+// LIGHTBOX
+//--------------------------------------------------------------
+#lb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+
+    @include bgStripes();
+
+    .lbBox {
+        display: none;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        max-height: 92%;
+        max-width: 92%;
+    }
+
+    img,
+    video {
+        max-height: 100%;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    picture {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    video {
+        cursor: auto;
+        background-image: none;
+    }
+}
+
+.lbItem {
+    cursor: zoom-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5)
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1)
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.5)
+    }
+}
+
+// 404
+//--------------------------------------------------------------
+#box404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: $colorShade3;
+
+    .dongler {
+        position: absolute;
+
+        bottom: 0;
+        right: 3vw;
+        font-size: clamp(2rem, 15vw, 10rem);
+        color: $colorShade2;
+
+        animation-duration: 0.5s;
+        animation-name: jump;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+
+    }
+}
+
+@keyframes jump {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-1px);
+    }
+}
+
+// MEDIA WIDTH
+//--------------------------------------------------------------
+@media only screen and (max-width: 1200px) {
+    .galleryItem {
+        @include flex-wrap-fix(200px);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .menu {
+        flex-direction: column;
+    }
+
+    .galleryItem {
+        @include flex-wrap-fix(160px);
+    }
+}
