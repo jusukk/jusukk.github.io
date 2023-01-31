@@ -15,7 +15,7 @@ $fontHeader: 'Courier New', Courier, monospace;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 3rem;
-    background-color: $colorBlack;
+    background-color: #000;
     min-height: 120px;
     min-width: 120px;
 }
@@ -157,6 +157,11 @@ video {
     pointer-events: none;
     color: $colorWhite;
     font-weight:bold;
+
+    &:hover, &:active  {
+        border: solid $colorAccent;
+        color: $colorWhite;
+    }
 }
 
 .btn {
@@ -541,6 +546,9 @@ footer {
 @media only screen and (max-width: 600px) {
     .menu {
         flex-direction: column;
+    }
+    header {
+        gap: 1rem;
     }
 
     .galleryItem {
