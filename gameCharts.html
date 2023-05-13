@@ -11,6 +11,7 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <script src="js/gamecharts.js" defer></script>
     <link rel="stylesheet" href="css/style.min.css">
     <title>Game Charts</title>
 </head>
@@ -18,61 +19,72 @@
 <body>
     <header>
         <div class="menu">
-            <div class="logo">
-                <a href="index.html"><</a>  
+            <a href="index.html">
                 <h1>Jussi Ukkonen</h1>
-            </div>
+            </a>
             <address>
-                <a href="about.html">About</a>
                 <a href="mailto:jussiukkonen@outlook.com" title="jussiukkonen@outlook.com">Email</a>
+                <a href="https://linkedin.com/in/jussiukkonen" target="_blank">LinkedIn</a>
                 <a href="https://github.com/jusukk" target="_blank" title="GitHub">GitHub</a>
             </address>
         </div>
-        <div id="dongler">ヽ༼ ʘ ∧ ʘ ༽</div>
     </header>
-
-    <div class="blogTextBox">
-        <h2>Game Charts</h2>
-        <div class="accentBox">
-            <span>JavaScript</span>
-            <span>CSS3 / Sass</span>
-            <span>HTML5 Canvas</span>
-            <span>Firebase</span>
-            <span>Charts.js</span>
-        </div>
-        <p>
-            JavaScript and HTML5 canvas game. Scores are stored in
-            a Firebase Realtime Database and are used to create canvas charts by using a Chart.js library.
-            <br><br> 
-            The first chart shows top 5 scores. The second chart shows averages and how many scores have
-            the same value.
-            You can toggle the chart by clicking its label.
-            <br><br>
-            Press SPACE to hover and try to avoid obstacles. You score when obstacles reach the other side.
-            The game ends when you hit the obstacle and your score is then sent to the database.
-            <br><br>
-            It works best with 60hz.
-        </p>
-        <address>
-            <a class="btn" href="https://github.com/jusukk/game-charts" target="_blank">GitHub Project</a> 
-        </address>
-    </div>
-    <div class="gameChartsBox">
-        <div class="gameBox">
-            <canvas id="game">Your browser does not support canvas element.</canvas>
-        </div>
-        <div class="chartBox">
-            <div class="chartBox-item-1">
-                <canvas id="chart1"></canvas>
+    <div class="wrap">
+        <div class="blogTextBox">
+            <h3>Game Charts</h3>
+            <div class="accentBox">
+                <p>JavaScript</p>
+                <p>CSS3 / Sass</p>
+                <p>HTML5 Canvas</p>
+                <p>Firebase</p>
+                <p>Charts.js</p>
             </div>
-            <div class="chartBox-item-2">
-                <canvas id="chart2"></canvas>
+            <p>
+                This was an exercise where I created a simple javaScript canvas game that uses Firebase. Scores are
+                stored in a Firebase Realtime Database and are used to create canvas charts by using a Chart.js library.
+                It works best with 60hz refresh rate.
+                <br><br>
+                The first chart shows the top 5 scores. The second chart shows averages and how many scores have the
+                same value. You can toggle the chart by clicking its label.
+                <br><br>
+                Press SPACE to hover and try to avoid obstacles. You score when obstacles reach the other side. The game
+                ends when you hit the obstacle and your score is then sent to the database.
+                <br>
+                Buttons: SPACE = Jump, P = Pause, R = Restart
+            </p>
+        </div>
+
+        <div class="blogGalleryBox">
+            <div class="gameChartsBox">
+                <div class="gameChartsGameBox">
+                    <canvas id="gameChartsGame">Your browser does not support canvas element.</canvas>
+                </div>
+                <div class="gameChartsBoxChartBox">
+                    <div class="gameChartsBoxChartBox-chart-1">
+                        <canvas id="gameChartsChart1"></canvas>
+                    </div>
+                    <div class="gameChartsBoxChartBox-chart-2">
+                        <canvas id="gameChartsChart2"></canvas>
+                    </div>
+                </div>
             </div>
+            <div class="blogGalleryItem">
+                <picture>
+                    <source srcset="media/gameGameCharts/gameGameCharts_1.avif " type="image/avif">
+                    <img src="media/gameGameCharts/gameGameCharts_1.jpg">
+                </picture>
+            </div>
+            <p>Screenshot in case the game doesn't load</p>
         </div>
     </div>
-    <footer></footer>
-
-    <script src="js/gamecharts.js"></script>
+    <span>ඞ</span>
+    <footer>
+        <div>
+            <address>
+                <a href="">&#9650;</a>
+            </address>
+        </div>
+    </footer>
 </body>
 
 </html>
