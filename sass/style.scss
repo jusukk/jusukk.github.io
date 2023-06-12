@@ -17,12 +17,10 @@ $colorAccent: #5a1de9;
     background-position: center;
     background-size: 3rem;
     background-color: #000;
-    min-height: 120px;
-    min-width: 120px;
 }
 
 @mixin contentWrap() {
-    max-width: 960px;
+    max-width: 1080px;
 }
 
 @mixin textWrap() {
@@ -30,12 +28,10 @@ $colorAccent: #5a1de9;
 }
 
 @mixin stripes() {
-    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+    background-color: #ffffff;
+    //background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
-@mixin stripesFooter() {
-    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.08' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
-}
 
 @mixin borderShadow() {
     box-shadow:
@@ -62,7 +58,7 @@ html {
 
 body {
     min-width: 320px;
-    background-color: $colorBlack;
+    background-color: #000;
 }
 
 h1 {
@@ -71,6 +67,7 @@ h1 {
     text-align: center;
     font-weight: normal;
     font-style: normal;
+    color: $colorBlack;
     //text-transform: uppercase;
 }
 
@@ -98,8 +95,10 @@ h4 {
     font-size: clamp(0.9rem, 2vw, 1.05rem);
     font-style: normal;
     font-weight: normal;
+    text-align: center;
     //text-transform: uppercase;
     color: #fff;
+    padding: 1rem 0;
 }
 
 span {
@@ -144,8 +143,7 @@ address {
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    padding: 0.7rem 1.5rem;
-    border: 0.15rem solid $colorShade3;
+    padding: 0.7rem 1.5rem;    
 }
 
 .accentBox {
@@ -168,12 +166,16 @@ address {
 // HEADER
 //--------------------------------------------------------------
 header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     padding: 1.5rem 1rem;
-    //background-color: $colorAccent;
     @include stripes();
+
+    address {
+        border: 0.15rem solid $colorBlack;        
+    }
+
+    a {
+        color: $colorBlack;
+    }
 }
 
 .menu {
@@ -189,7 +191,7 @@ header {
 //--------------------------------------------------------------
 footer {
     padding: 1.5rem;
-    @include stripesFooter();
+    @include stripes();
 
     div {
         @include contentWrap();
@@ -200,6 +202,11 @@ footer {
 
     address {
         padding: 0.1rem 0.3rem;
+        border: 0.15rem solid $colorBlack;
+    }
+
+    a {
+        color: $colorBlack;
     }
 }
 
@@ -214,20 +221,15 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
     flex-wrap: wrap;
+    gap: 8px;
     @include contentWrap();
     background-color: #000;
-    //border: 0.2rem solid #000;
-    @include borderShadow();
 }
 
 .galleryItem {
-    position: relative; // Textbox
-    flex: 1 1 0;
-    max-width: 320px;
-    min-width: 30%;
-    border: 0.15rem solid #000;
+    flex: 1 1 250px;
+    max-width: 30%;
 
     img,
     video {
@@ -236,27 +238,12 @@ footer {
         aspect-ratio: 1;
         object-fit: cover;
     }
-
-    &:hover .galleryItemTextBox {
-        background-color: $colorAccent;
-    }
 }
 
-.galleryItemTextBox {
-    z-index: 10;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 0.5rem;
-    opacity: 0.9;
-    background-color: $colorBlack;
-    color: #fff;
-    text-align: center;
-    font-style: normal;
-    //text-transform: uppercase;
-    font-size: 0.9rem;
-    user-select: none;
+.galleryGroup {
+    display: flex;
 }
+
 
 // BLOG
 //--------------------------------------------------------------
@@ -282,17 +269,20 @@ footer {
     li {
         margin: 0.5rem 0;
     }
+
+    address {
+        border: 0.15rem solid #fff;
+    }
 }
 
 .blogGalleryBox {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 8px;
     width: 100%;
     margin: 0 auto;
     background-color: #000;
-    //border: 0.2rem solid #000;
-    @include borderShadow();
 
     p {
         color: $colorShade3;
@@ -304,7 +294,6 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 0.15rem solid #000;
 
     video,
     img {
