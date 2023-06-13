@@ -222,7 +222,7 @@ footer {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 0 8px;
     @include contentWrap();
     background-color: #000;
 }
