@@ -143,7 +143,7 @@ address {
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    padding: 0.7rem 1.5rem;    
+    padding: 0.7rem 1.5rem;
 }
 
 .accentBox {
@@ -170,7 +170,7 @@ header {
     @include stripes();
 
     address {
-        border: 0.15rem solid $colorBlack;        
+        border: 0.15rem solid $colorBlack;
     }
 
     a {
