@@ -12,26 +12,19 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
     <script src="js/gameCharts.js" defer></script>
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Game Charts</title>
 </head>
 
 <body>
-    <header>
-        <div class="wrap">
-            <div class="menu">
-                <a href="index.html">
-                    <h1>Jussi Ukkonen</h1>
-                </a>
-                <address>
-                    <a href="mailto:jussiukkonen@outlook.com" title="jussiukkonen@outlook.com">Email</a>
-                    <a href="https://github.com/jusukk" target="_blank" title="GitHub">GitHub</a>
-                </address>
-            </div>
-        </div>
-    </header>
-    <div class="wrap">
-        <div class="blogTextBox">
+    <div class="itemWrap">
+        <div class="itemTextBox">
+            <a class="btn btnDark" href="index.html">
+                <svg xmlns="http://www.w3.org/2000/svg"" viewBox="0 0 24 24">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+                </svg>
+            </a>
             <h3>Charts</h3>
             <div class="accentBox">
                 <p>JavaScript</p>
@@ -49,42 +42,23 @@
                 <br><br>
                 Press SPACE to hover and try to avoid obstacles. You score when obstacles reach the other side. The game
                 ends when you hit the obstacle, and your score is then sent to the database.
-                <br>
-                Buttons: SPACE = Jump, P = Pause, R = Restart
+                <br><br>
+                SPACE = Jump, P = Pause, R = Restart
             </p>
-            <address>
+            <div class="itemLinkBox">
                 <a href="https://github.com/jusukk/game-charts" target="_blank">GitHub Project</a> 
-            </address>
+            </div>
         </div>
 
-        <div class="blogGalleryBox">
+        <div class="itemGalleryBox">  
+            <canvas id="gameChartsGame">Your browser does not support canvas element.</canvas>
             <div class="gameChartsBox">
-                <div class="gameChartsGameBox">
-                    <canvas id="gameChartsGame">Your browser does not support canvas element.</canvas>
-                </div>
-                <div class="gameChartsBoxChartBox">
-                    <div class="gameChartsBoxChartBox-chart-1">
-                        <canvas id="gameChartsChart1"></canvas>
-                    </div>
-                    <div class="gameChartsBoxChartBox-chart-2">
-                        <canvas id="gameChartsChart2"></canvas>
-                    </div>
-                </div>
+                <canvas id="gameChartsChart1"></canvas>
+                <canvas id="gameChartsChart2"></canvas>
             </div>
-            <div class="blogGalleryItem">
-                <img src="media/gcha/gcha_1.jpg">
-            </div>
-            <p>Screenshot in case the game doesn't load</p>
         </div>
     </div>
-    <span>ඞ</span>
-    <footer>
-        <div>
-            <address>
-                <a href="#">&#9650;</a>
-            </address>
-        </div>
-    </footer>
+
 </body>
 
 </html>

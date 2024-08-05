@@ -1,13 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Source+Sans+Pro:wght@300;400;600&display=swap');
-$fontMain: 'Montserrat', sans-serif;
-$fontHeader: 'Source Sans Pro', sans-serif;
+$fontMain: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
 
 $colorBlack: #1c1d25;
 $colorWhite: #FBFBFF;
 $colorShade1: mix($colorWhite, $colorBlack, 10%);
-$colorShade2: mix($colorWhite, $colorBlack, 55%);
-$colorShade3: mix($colorWhite, $colorBlack, 70%);
-$colorShade4: mix($colorWhite, $colorBlack, 90%);
+$colorShade2: mix($colorWhite, $colorBlack, 20%);
+$colorShade3: mix($colorWhite, $colorBlack, 30%);
+$colorShade4: mix($colorWhite, $colorBlack, 40%);
+$colorShade5: mix($colorWhite, $colorBlack, 50%);
+$colorShade6: mix($colorWhite, $colorBlack, 60%);
+$colorShade7: mix($colorWhite, $colorBlack, 70%);
+$colorShade8: mix($colorWhite, $colorBlack, 80%);
+$colorShade9: mix($colorWhite, $colorBlack, 90%);
 
 $colorAccent: #5a1de9;
 
@@ -20,11 +24,10 @@ $colorAccent: #5a1de9;
 }
 
 @mixin contentWrap() {
-    max-width: 1080px;
+    max-width: 1600px;
 }
-
-@mixin textWrap() {
-    max-width: 900px;
+@mixin shadow() {
+    box-shadow: 5px 6px 10px rgba(0,0,0,.2);
 }
 
 @mixin stripes() {
@@ -57,41 +60,42 @@ html {
 }
 
 body {
+    min-height: 100vh;
     min-width: 320px;
-    background-color: #000;
+    background-color: $colorBlack;
 }
 
 h1 {
-    font-family: $fontHeader;
-    font-size: 2.5rem;
+    font-family: $fontMain;
+    font-size: clamp(2.3rem, 5vw, 2.6rem);
     text-align: center;
     font-weight: normal;
     font-style: normal;
     color: $colorBlack;
+    line-height: 2.5rem;
     //text-transform: uppercase;
 }
 
 h2 {
-    font-family: $fontHeader;
-    font-size: clamp(1.2rem, 6vw, 1.5em);
-    font-style: normal;
+    font-family: $fontMain;
+    font-size: clamp(1.1rem, 4vw, 1.8rem);
     font-weight: 600;
-    //text-transform: uppercase;
-    color: #fff;
-    margin-left: 0.2rem;
+    color: $colorShade7;
+    padding: 1.5rem 0;
+    line-height: 2.5rem;
 }
 
 h3 {
-    font-family: $fontHeader;
-    font-size: clamp(1.9rem, 6vw, 2.2rem);
-    font-style: normal;
+    font-family: $fontMain;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
     font-weight: 600;
-    //text-transform: uppercase;
-    color: #fff;
+    color: $colorShade7;
+    text-align: center;
+    line-height: 2.5rem;
 }
 
 h4 {
-    font-family: $fontHeader;
+    font-family: $fontMain;
     font-size: clamp(0.9rem, 2vw, 1.05rem);
     font-style: normal;
     font-weight: normal;
@@ -101,25 +105,33 @@ h4 {
     padding: 1rem 0;
 }
 
-span {
-    position: relative;
-    left: 0.5%;
-    bottom: -0.2rem;
-    font-size: 1.2rem;
-    color: #472d2d;
-    user-select: none;
-}
+.btn {
+    background-color: $colorBlack;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    fill: $colorShade8;
+    @include shadow();
 
-a {
-    font-family: $fontMain;
-    font-style: italic;
-    text-decoration: none;
-    color: #fff;
+    transition: all 0.11s ease-out;
 
     &:hover {
-        text-decoration: underline;
-        //color: $colorAccent;
+        background-color: $colorAccent;
+        fill: $colorShade9;
+        transform: scale(1.2);
     }
+
+    svg {
+        width: 1.4rem;
+        height: 1.4rem;
+    }
+}
+
+.btnDark {
+    background-color: $colorShade3;
 }
 
 img,
@@ -128,22 +140,169 @@ video {
     @include load();
 }
 
-.wrap {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: 0 1rem;
-    width: 100%;
-    margin-bottom: 0.3rem;
+.babylon {
+    height: 600px;
+
+    span {
+        color: #fff;
+    }
 }
 
-address {
+// HEADER
+//--------------------------------------------------------------
+header {
+    width: 100%;
+    background-color: $colorWhite;
+}
+
+.headWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    margin: 0 auto;
+    @include contentWrap();
+}
+
+.linkBox {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 1.2rem;
+}
+
+// GALLERY
+//--------------------------------------------------------------
+.gallery {
+    width: 100%;
+    padding-bottom: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: column;
+}
+
+.galleryWrap {
+    padding: 2.5rem 2rem;
+    margin: 0 auto;
     gap: 2rem;
-    padding: 0.7rem 1.5rem;
+    @include contentWrap();
+}
+
+.galleryBox {
+    max-width: 2060px;
+}
+
+.galleryRow {
+    display: flex;
+    justify-content: left;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+
+    img,
+    video {
+        width: 100%;
+        height: 100%;
+        max-width: 270px;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 0.6rem;
+        @include shadow();
+
+        border-bottom: 0px solid $colorAccent;
+        transition: border-bottom 0.11s ease-out;
+    }
+
+    img:hover,
+    video:hover {
+        border-bottom: 6px solid $colorAccent;
+        transform: scale(1.02);
+    }
+}
+
+// Item
+//--------------------------------------------------------------
+.itemWrap {
+    display: flex;
+    margin: 0 auto;
+    padding: 0 1rem;
+    @include contentWrap();
+}
+
+.itemTextBox {
+    position: sticky;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: right;
+    height: 100%;
+    max-width: 420px;
+    margin: 0 2rem 0 1rem;
+    gap: 2rem;
+    //border: 0.15rem solid $colorShade2;
+
+    p {
+        color: $colorShade7;
+    }
+
+    ul {
+        color: $colorShade7;
+        margin-left: 1rem;
+        list-style-type: none;
+        text-align: start;
+    }
+
+    li {
+        margin: 0.5rem 0;
+    }
+
+}
+
+.itemGalleryBox {
+    min-height: 100vh;
+    padding: 2rem 0 8rem;
+    //background-color: #000;
+    //@include shadow();
+
+    p {
+        color: $colorShade5;
+        text-align: left;
+        padding: 0.5rem 2rem 1rem;
+    }
+
+    video,
+    img {
+        max-height: 75vh;
+        max-width: 100%;
+    }
+}
+
+.itemLinkBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    a {
+        padding: 0.5rem 1rem;
+        border-radius: 0.6rem;
+        font-size: 0.9rem;
+        text-decoration: none;
+        background-color: $colorShade3;
+        color: $colorShade8;
+        @include shadow();
+
+        transition: all 0.11s ease-out;
+    }
+
+    a:hover {
+        background-color: $colorAccent;
+        color: $colorShade9;
+        //text-decoration: underline;
+        transform: scale(1.2);
+    }
 }
 
 .accentBox {
@@ -155,200 +314,38 @@ address {
 
     p {
         padding: 0.4rem 0.8rem;
-        border-radius: 0.4rem;
+        border-radius: 0.6rem;
         font-size: 0.9rem;
         font-style: italic;
         background-color: $colorShade1;
-        color: $colorShade3;
-    }
-}
-
-// HEADER
-//--------------------------------------------------------------
-header {
-    padding: 1.5rem 1rem;
-    @include stripes();
-
-    address {
-        border: 0.15rem solid $colorBlack;
-    }
-
-    a {
-        color: $colorBlack;
-    }
-}
-
-.menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    @include contentWrap();
-}
-
-// FOOTER
-//--------------------------------------------------------------
-footer {
-    padding: 1.5rem;
-    @include stripes();
-
-    div {
-        @include contentWrap();
-        margin: 0 auto;
-        display: flex;
-        justify-content: end;
-    }
-
-    address {
-        padding: 0.1rem 0.3rem;
-        border: 0.15rem solid $colorBlack;
-    }
-
-    a {
-        color: $colorBlack;
-    }
-}
-
-// GALLERY
-//--------------------------------------------------------------
-.galleryBox {
-    margin-top: 1.5rem;
-}
-
-.galleryItems {
-    margin-top: 0.5rem;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0 8px;
-    @include contentWrap();
-    background-color: #000;
-}
-
-.galleryItem {
-    flex: 1 1 250px;
-    max-width: 30%;
-
-    img,
-    video {
-        width: 100%;
-        height: 100%;
-        aspect-ratio: 1;
-        object-fit: cover;
-    }
-}
-
-.galleryGroup {
-    display: flex;
-}
-
-
-// BLOG
-//--------------------------------------------------------------
-.blogTextBox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 3rem 0;
-    width: 100%;
-    padding: 2rem 2.8rem 2.5rem;
-    border: 0.15rem solid $colorShade2;
-
-    @include textWrap();
-
-    ul {
-        margin-left: 1rem;
-        list-style-type: none;
-        text-align: start;
-    }
-
-    li {
-        margin: 0.5rem 0;
-    }
-
-    address {
-        border: 0.15rem solid #fff;
-    }
-}
-
-.blogGalleryBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    margin: 0 auto;
-    background-color: #000;
-
-    p {
-        color: $colorShade3;
-        text-align: center;
-    }
-}
-
-.blogGalleryItem {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    video,
-    img {
-        max-height: 85vh;
-        max-width: 100%;
-    }
-}
-
-.babylon {
-    height: 600px;
-
-    span {
-        color: #fff;
+        color: $colorShade6;
+        @include shadow();
     }
 }
 
 // GAMECHARTS
 //--------------------------------------------------------------
-.gameChartsBox {
-    max-width: 960px;
-    margin: 0 auto;
-    margin-bottom: 10rem;
-}
-
-.gameChartsGameBox {
-    padding: 1rem 0;
-}
-
 #gameChartsGame {
-    width: 100%;
+    width:720px;
     height: 320px;
 }
 
-.gameChartsBoxChartBox {
+.gameChartsBox {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    gap: 1rem;
-
-    canvas {
-        height: 320px !important;
-    }
 }
 
-.gameChartsBoxChartBox-chart-1 {
+#gameChartsChart1 {
     max-width: 250px;
+    height: 320px
+}
+#gameChartsChart2 {
+    max-width: 460px;
+    height: 320px
 }
 
 // MEDIA WIDTH
 //--------------------------------------------------------------
 
-@media only screen and (max-width: 600px) {
-    .menu {
-        flex-direction: column;
-        gap: 1.2rem;
-    }
-
-
-}
+@media only screen and (max-width: 600px) {}
