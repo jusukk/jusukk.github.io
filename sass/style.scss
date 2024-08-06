@@ -13,7 +13,7 @@ $colorShade7: mix($colorWhite, $colorBlack, 70%);
 $colorShade8: mix($colorWhite, $colorBlack, 80%);
 $colorShade9: mix($colorWhite, $colorBlack, 90%);
 
-$colorAccent: #5a1de9;
+$colorAccent: #531de9;
 
 @mixin load() {
     background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='24px' height='30px' viewBox='0 0 24 30' style='enable-background:new 0 0 50 50;' xml:space='preserve'%3E%3Crect x='0' y='10' width='4' height='10' fill='%23999999' opacity='0.2'%3E%3Canimate attributeName='opacity' attributeType='XML' values='0.2; 1; .2' begin='0s' dur='0.6s' repeatCount='indefinite' /%3E%3Canimate attributeName='height' attributeType='XML' values='10; 20; 10' begin='0s' dur='0.6s' repeatCount='indefinite' /%3E%3Canimate attributeName='y' attributeType='XML' values='10; 5; 10' begin='0s' dur='0.6s' repeatCount='indefinite' /%3E%3C/rect%3E%3Crect x='8' y='10' width='4' height='10' fill='%23999999' opacity='0.2'%3E%3Canimate attributeName='opacity' attributeType='XML' values='0.2; 1; .2' begin='0.15s' dur='0.6s' repeatCount='indefinite' /%3E%3Canimate attributeName='height' attributeType='XML' values='10; 20; 10' begin='0.15s' dur='0.6s' repeatCount='indefinite' /%3E%3Canimate attributeName='y' attributeType='XML' values='10; 5; 10' begin='0.15s' dur='0.6s' repeatCount='indefinite' /%3E%3C/rect%3E%3Crect x='16' y='10' width='4' height='10' fill='%23999999' opacity='0.2'%3E%3Canimate attributeName='opacity' attributeType='XML' values='0.2; 1; .2' begin='0.3s' dur='0.6s' repeatCount='indefinite' /%3E%3Canimate attributeName='height' attributeType='XML' values='10; 20; 10' begin='0.3s' dur='0.6s' repeatCount='indefinite' /%3E%3Canimate attributeName='y' attributeType='XML' values='10; 5; 10' begin='0.3s' dur='0.6s' repeatCount='indefinite' /%3E%3C/rect%3E%3C/svg%3E");
@@ -24,7 +24,7 @@ $colorAccent: #5a1de9;
 }
 
 @mixin contentWrap() {
-    max-width: 1600px;
+    max-width: 1800px;
 }
 @mixin shadow() {
     box-shadow: 5px 6px 10px rgba(0,0,0,.2);
@@ -52,13 +52,6 @@ $colorAccent: #5a1de9;
     border: none;
 }
 
-html {
-    font-size: clamp(0.9rem, 2vw, 1.05rem);
-    font-family: $fontMain;
-    color: $colorShade4;
-    line-height: 150%;
-}
-
 body {
     min-height: 100vh;
     min-width: 320px;
@@ -78,7 +71,7 @@ h1 {
 
 h2 {
     font-family: $fontMain;
-    font-size: clamp(1.1rem, 4vw, 1.8rem);
+    font-size: clamp(1.5rem, 4vw, 1.8rem);
     font-weight: 600;
     color: $colorShade7;
     padding: 1.5rem 0;
@@ -94,15 +87,11 @@ h3 {
     line-height: 2.5rem;
 }
 
-h4 {
-    font-family: $fontMain;
+p, ul, a {
     font-size: clamp(0.9rem, 2vw, 1.05rem);
-    font-style: normal;
-    font-weight: normal;
-    text-align: center;
-    //text-transform: uppercase;
-    color: #fff;
-    padding: 1rem 0;
+    font-family: $fontMain;
+    color: $colorShade7;
+    line-height: 150%;
 }
 
 .btn {
@@ -183,7 +172,7 @@ header {
 }
 
 .galleryWrap {
-    padding: 2.5rem 2rem;
+    padding: 0 2rem;
     margin: 0 auto;
     gap: 2rem;
     @include contentWrap();
@@ -242,10 +231,6 @@ header {
     gap: 2rem;
     //border: 0.15rem solid $colorShade2;
 
-    p {
-        color: $colorShade7;
-    }
-
     ul {
         color: $colorShade7;
         margin-left: 1rem;
@@ -267,7 +252,6 @@ header {
 
     p {
         color: $colorShade5;
-        text-align: left;
         padding: 0.5rem 2rem 1rem;
     }
 
@@ -348,4 +332,12 @@ header {
 // MEDIA WIDTH
 //--------------------------------------------------------------
 
-@media only screen and (max-width: 600px) {}
+@media only screen and (max-width: 960px) {
+    .galleryRow {
+        img,
+        video {
+            max-width: 120px;
+        }
+    }
+
+}
