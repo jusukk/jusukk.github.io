@@ -114,15 +114,15 @@ p, ul, a {
     height: auto;
 
     :first-child {
-        max-height: 72vh;
-        max-height: 640px;
+        max-height: min(600px, 50vw);
+        aspect-ratio: 1;
     }
     
 }
 
 .babylon {
-    height: 72vh;
-    max-height: 640px;
+    max-height: min(600px, 50vw);
+    aspect-ratio: 1;
 
     span {
         color: #fff;
@@ -255,8 +255,7 @@ header {
 
     video,
     img {
-        width: 100%;
-        max-height: 72vh;
+        max-height: min(72vh, 900px);
         object-fit: contain;
     }
 }
